@@ -26,26 +26,26 @@ $(NAME): $(OBJ) | $(LIBFT_A)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 $(LIBFT_A): FORCE
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	$(RM) $(OBJ) $(SRC:.c=.d)
-	$(MAKE) -C $(TESTD) clean
-	$(MAKE) -C $(RTESTD) clean
+	@$(MAKE) -C $(TESTD) clean
+	@$(MAKE) -C $(RTESTD) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C $(TESTD) fclean
-	$(MAKE) -C $(RTESTD) fclean
+	@$(MAKE) -C $(TESTD) fclean
+	@$(MAKE) -C $(RTESTD) fclean
 
 re: fclean
-	$(MAKE) all
+	@$(MAKE) all
 
 $(TESTB): FORCE
-	$(MAKE) -C $(TESTD)
+	@$(MAKE) -C $(TESTD)
 
 $(RTESTB): FORCE
-	$(MAKE) -C $(RTESTD)
+	@$(MAKE) -C $(RTESTD)
 
 test: $(TESTB) $(RTESTB)
 	$(TESTB)

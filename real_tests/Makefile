@@ -21,7 +21,7 @@ $(NAME): $(OBJ) | libunit
 	$(CC) $(CCFLAGS) $(INC) $(OBJ) $(LIBS) -o $(NAME)
 
 libunit:
-	$(MAKE) -C ..
+	@$(MAKE) -C ..
 
 clean:
 	$(RM) $(OBJ) $(SRC:.c=.d)
