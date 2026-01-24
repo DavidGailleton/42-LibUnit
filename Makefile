@@ -32,6 +32,9 @@ fclean: clean
 re: fclean
 	$(MAKE) all
 
+test: all
+	./$(NAME)
+
 -include $(SRC:.c=.d)
 
 .PHONY: all clean fclean re

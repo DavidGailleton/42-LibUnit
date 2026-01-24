@@ -6,11 +6,12 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 16:15:02 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:28:06 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
+#include "libft/libft.h"
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -25,29 +26,36 @@ static size_t	interpret_status(int status, const char *fn_name
 	if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status))
-			ft_putstr_fd("[KO]\n", 1);
+			ft_putstr_fd("[\x1B[31m\x1B[1mKO\x1B[0m]\n", 1);
 		else
 		{
-			ft_putstr_fd("[OK]\n", 1);
+			ft_putstr_fd("[\x1B[32mOK\x1B[0m]\n", 1);
 			return (1);
 		}
 	}
 	else if (WIFSIGNALED(status))
 	{
 		if (WTERMSIG(status) == 11)
-			ft_putstr_fd("[SIGSEGV]\n", 1);
+			ft_putstr_fd("[\x1B[33mSIGSEGV\x1B[0m]\n", 1);
 		else if (WTERMSIG(status) == 10)
-			ft_putstr_fd("[SIGBUS]\n", 1);
+			ft_putstr_fd("[\x1B[33mSIGBUS\x1B[0m]\n", 1);
 	}
 	return (0);
 }
 
 static void	print_passed_test(size_t ok_tests, t_unit_test *test_list)
 {
+  size_t total;
+
+  total = count_tests(test_list);
+  if (ok_tests == total)
+    ft_putstr_fd("\x1B[32m", 1);
+  else
+    ft_putstr_fd("\x1B[31m", 1);
 	ft_putnbr_fd(ok_tests, 1);
 	ft_putchar_fd('/', 1);
-	ft_putnbr_fd((int)count_tests(test_list), 1);
-	ft_putstr_fd(" tests checked", 1);
+	ft_putnbr_fd((int)total, 1);
+	ft_putstr_fd("\x1B[0m tests succeeded\n\n", 1);
 }
 
 int	launch_tests(t_unit_test *test_list, const char *fn_name)
