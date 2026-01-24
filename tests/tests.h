@@ -16,12 +16,12 @@
 # include "libunit.h"
 
 // LAUNCHERS
-int libunit_launcher(void);
+int	libunit_launcher(void);
 
 // libunit
-int test_ok(void);
-int test_ko(void);
-int test_sigsegv(void);
-int test_sigbus(void);
+int	test_ok(void);
+int	test_ko(void);
+int	test_sigsegv(void);
+int	test_sigbus(void);
 
 #endif // !TESTS_H

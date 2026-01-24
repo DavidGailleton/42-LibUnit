@@ -12,18 +12,17 @@
 
 #include "../tests.h"
 
-int libunit_launcher(void) {
-  t_unit_test *testlist;
-  size_t      res;
+int	libunit_launcher(void)
+{
+	t_unit_test	*testlist;
+	size_t		res;
 
-  testlist = NULL;
-  load_test(&testlist, "successful", &test_ok);
-  load_test(&testlist, "unsuccessful", &test_ko);
-  load_test(&testlist, "sigsegv", &test_sigsegv);
-  load_test(&testlist, "sigbus", &test_sigbus);
-
-  res = launch_tests(testlist, "libunit");
-  clear_tests(&testlist);
-
-  return (res);
+	testlist = NULL;
+	load_test(&testlist, "successful", &test_ok);
+	load_test(&testlist, "unsuccessful", &test_ko);
+	load_test(&testlist, "sigsegv", &test_sigsegv);
+	load_test(&testlist, "sigbus", &test_sigbus);
+	res = launch_tests(testlist, "libunit");
+	clear_tests(&testlist);
+	return (res);
 }

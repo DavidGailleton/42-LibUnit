@@ -12,7 +12,8 @@
 
 #include <signal.h>
 
-int test_sigbus(void) {
-  raise(SIGBUS);
-  return (1);
+int	test_sigbus(void)
+{
+	raise(SIGBUS);
+	return (1);
 }

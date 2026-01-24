@@ -16,11 +16,11 @@
 # include "libunit.h"
 
 // LAUNCHERS
-int strlen_launcher(void);
+int	strlen_launcher(void);
 
 // strlen
-int test_basic(void);
-int test_null(void);
-int test_large(void);
+int	test_basic(void);
+int	test_null(void);
+int	test_large(void);
 
 #endif // !TESTS_H

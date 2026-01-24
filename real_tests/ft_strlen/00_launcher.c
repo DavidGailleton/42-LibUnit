@@ -12,17 +12,16 @@
 
 #include "../tests.h"
 
-int strlen_launcher(void) {
-  t_unit_test *testlist;
-  size_t      res;
+int	strlen_launcher(void)
+{
+	t_unit_test	*testlist;
+	size_t		res;
 
-  testlist = NULL;
-  load_test(&testlist, "null", &test_null);
-  load_test(&testlist, "basic", &test_basic);
-  load_test(&testlist, "large", &test_large);
-
-  res = launch_tests(testlist, "strlen");
-  clear_tests(&testlist);
-
-  return (res);
+	testlist = NULL;
+	load_test(&testlist, "null", &test_null);
+	load_test(&testlist, "basic", &test_basic);
+	load_test(&testlist, "large", &test_large);
+	res = launch_tests(testlist, "strlen");
+	clear_tests(&testlist);
+	return (res);
 }
