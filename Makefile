@@ -25,7 +25,7 @@ $(NAME): $(OBJ) | $(LIBFT_A)
 %.o: %.c Makefile
 	$(CC) $(CCFLAGS) -c $< -o $@
 
-$(LIBFT_A):
+$(LIBFT_A): FORCE
 	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
@@ -41,15 +41,17 @@ fclean: clean
 re: fclean
 	$(MAKE) all
 
-$(TESTB):
+$(TESTB): FORCE
 	$(MAKE) -C $(TESTD)
 
-$(RTESTB):
+$(RTESTB): FORCE
 	$(MAKE) -C $(RTESTD)
 
 test: $(TESTB) $(RTESTB)
 	$(TESTB)
 	$(RTESTB)
+
+FORCE: ;
 
 -include $(SRC:.c=.d)
 
