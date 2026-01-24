@@ -8,7 +8,7 @@ LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
 SRC				= libunit_util.c libunit_util2.c libunit.c main.c
-SRC				+= real_tests/ft_strlen/00_launcher.c real_tests/ft_strlen/01_basic.c real_tests/ft_strlen/02_null.c
+SRC				+= real_tests/ft_strlen/00_launcher.c real_tests/ft_strlen/01_basic.c real_tests/ft_strlen/02_null.c real_tests/ft_strlen/03_large.c
 SRC				+= tests/libunit/00_launcher.c tests/libunit/01_ok.c tests/libunit/02_ko.c tests/libunit/03_sigsegv.c tests/libunit/04_sigbus.c
 OBJ				= $(SRC:.c=.o)
 

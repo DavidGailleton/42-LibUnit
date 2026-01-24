@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 16:28:06 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:50:51 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static size_t	interpret_status(int status, const char *fn_name
 	{
 		if (WTERMSIG(status) == 11)
 			ft_putstr_fd("[\x1B[33mSIGSEGV\x1B[0m]\n", 1);
-		else if (WTERMSIG(status) == 10)
+		else if (WTERMSIG(status) == 7)
 			ft_putstr_fd("[\x1B[33mSIGBUS\x1B[0m]\n", 1);
 	}
 	return (0);

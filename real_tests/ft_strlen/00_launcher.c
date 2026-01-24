@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:32:32 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:17:20 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:34:12 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int strlen_launcher(void) {
   size_t      res;
 
   testlist = NULL;
-  load_test(&testlist, "null test", &test_null);
-  load_test(&testlist, "basic test", &test_basic);
+  load_test(&testlist, "null", &test_null);
+  load_test(&testlist, "basic", &test_basic);
+  load_test(&testlist, "large", &test_large);
 
   res = launch_tests(testlist, "strlen");
   clear_tests(&testlist);
