@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 15:40:58 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 15:41:56 by elagouch         ###   ########.fr       */
+/*   Created: 2026/01/24 15:32:30 by elagouch          #+#    #+#             */
+/*   Updated: 2026/01/24 16:16:13 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef TESTS_H
+# define TESTS_H
 
-int	main(void)
-{
-	strlen_launcher();
-}
+# include "libunit.h"
+
+// strlen
+int test_basic(void);
+int test_null(void);
+
+#endif // !TESTS_H

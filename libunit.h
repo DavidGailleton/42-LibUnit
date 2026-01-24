@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_unit.h                                        :+:      :+:    :+:   */
+/*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 15:35:30 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:15:23 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ void					clear_tests(t_unit_test **head_ptr);
  */
 int						launch_tests(t_unit_test *test_list,
 							const char *fn_name);
+
+// LAUNCHERS
+int           strlen_launcher(void);
+int           libunit_launcher(void);
 
 #endif // !UTIL_UNIT_H

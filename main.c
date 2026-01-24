@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 15:32:32 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 15:44:00 by elagouch         ###   ########.fr       */
+/*   Created: 2026/01/24 15:40:58 by elagouch          #+#    #+#             */
+/*   Updated: 2026/01/24 16:15:52 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../util_unit.h"
-#include "../tests.h"
+#include "libunit.h"
 
-int	strlen_launcher(void)
+int main(void)
 {
-	t_unit_test	*testlist;
-	size_t		res;
-
-	testlist = NULL;
-	load_test(&testlist, "null test", &test_null);
-	load_test(&testlist, "basic test", &test_basic);
-	res = launch_tests(testlist, "strlen");
-	clear_tests(&testlist);
-	return (res);
+  libunit_launcher();
+  strlen_launcher();
 }

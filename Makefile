@@ -2,14 +2,14 @@ NAME			= libunit
 CXX				= cc
 CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
 CXXFLAGS	+= -g3
-CXXFLAGS	+= -I $(LIBFT_DIR)
+CXXFLAGS	+= -I $(LIBFT_DIR) -I.
 LDFLAGS		= -Llibft -lft
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
-SRC				= util_unit.c util_unit2.c launch_test.c
-SRC				+= tests/main.c
-SRC				+= tests/ft_strlen/00_launcher.c tests/ft_strlen/01_basic_test.c tests/ft_strlen/02_null_test.c
+SRC				= libunit_util.c libunit_util2.c libunit.c main.c
+SRC				+= real_tests/ft_strlen/00_launcher.c real_tests/ft_strlen/01_basic.c real_tests/ft_strlen/02_null.c
+SRC				+= tests/libunit/00_launcher.c tests/libunit/01_ok.c tests/libunit/02_ko.c tests/libunit/03_sigsegv.c tests/libunit/04_sigbus.c
 OBJ				= $(SRC:.c=.o)
 
 all: $(NAME)

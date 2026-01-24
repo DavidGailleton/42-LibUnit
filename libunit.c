@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launch_test.c                                      :+:      :+:    :+:   */
+/*   libunit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 15:44:35 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:15:02 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util_unit.h"
-#include "util_unit.h"
+#include "libunit.h"
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdlib.h>
