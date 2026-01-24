@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:32:30 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:33:14 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 18:40:48 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define TESTS_H
 
 # include "libunit.h"
+
+// LAUNCHERS
+int strlen_launcher(void);
 
 // strlen
 int test_basic(void);

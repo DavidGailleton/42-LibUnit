@@ -1,48 +1,57 @@
 NAME			= libunit.a
-TNAME			= libunit
 AR				= ar rcs
-CXX				= cc
-CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
-CXXFLAGS	+= -g3
-CXXFLAGS	+= -I$(LIBFT_DIR) -I. -Iframework
+CC				= cc
+CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
+CCFLAGS		+= -I$(LIBFT_DIR) -I. -Iframework
 LDFLAGS		= -Llibft -lunit -lft -L.
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
 SRC				= framework/libunit_util.c framework/libunit_util2.c framework/libunit.c
-TSRC			= main.c real_tests/ft_strlen/00_launcher.c real_tests/ft_strlen/01_basic.c real_tests/ft_strlen/02_null.c real_tests/ft_strlen/03_large.c
-TSRC			+= tests/libunit/00_launcher.c tests/libunit/01_ok.c tests/libunit/02_ko.c tests/libunit/03_sigsegv.c tests/libunit/04_sigbus.c
 OBJ				= $(SRC:.c=.o)
-TOBJ			= $(TSRC:.c=.o)
+
+TESTD			= tests
+TESTB			= $(TESTD)/tests
+TESTM			= $(TESTD)/Makefile
+RTESTD		= real_tests
+RTESTB		= $(RTESTD)/real_tests
+RTESTM		= $(RTESTD)/Makefile
 
 all: $(NAME)
 
 $(NAME): $(OBJ) | $(LIBFT_A)
 	$(AR) $(NAME) $(OBJ)
 
-$(TNAME): $(NAME) $(TOBJ) | $(LIBFT_A) $(NAME)
-	$(CXX) $(CXXFLAGS) $(TOBJ) $(LDFLAGS) -o $(TNAME)
-
 %.o: %.c Makefile
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 $(LIBFT_A):
 	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(RM) $(OBJ) $(TOBJ) $(SRC:.c=.d) $(TSRC:.c=.d)
+	$(RM) $(OBJ) $(SRC:.c=.d)
+	$(MAKE) -C $(TESTD) clean
+	$(MAKE) -C $(RTESTD) clean
 
 fclean: clean
-	$(RM) $(NAME) $(TNAME)
+	$(RM) $(NAME)
+	$(MAKE) -C $(TESTD) fclean
+	$(MAKE) -C $(RTESTD) fclean
 
 re: fclean
 	$(MAKE) all
 
-test: $(TNAME)
-	./$(TNAME)
+$(TESTB):
+	$(MAKE) -C $(TESTD)
 
--include $(SRC:.c=.d) $(TSRC:.c=.d)
+$(RTESTB):
+	$(MAKE) -C $(RTESTD)
+
+test: $(TESTB) $(RTESTB)
+	$(TESTB)
+	$(RTESTB)
+
+-include $(SRC:.c=.d)
 
 .PHONY: all clean fclean re
 

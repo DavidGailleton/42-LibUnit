@@ -6,14 +6,14 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:15:23 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 18:40:36 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTIL_UNIT_H
 # define UTIL_UNIT_H
 
-# include "libft/libft.h"
+# include "libft.h"
 # include <sys/types.h>
 # include <unistd.h>
 
@@ -65,9 +65,5 @@ void					clear_tests(t_unit_test **head_ptr);
  */
 int						launch_tests(t_unit_test *test_list,
 							const char *fn_name);
-
-// LAUNCHERS
-int           strlen_launcher(void);
-int           libunit_launcher(void);
 
 #endif // !UTIL_UNIT_H
