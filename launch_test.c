@@ -77,7 +77,7 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 			wpid = wait(&status);
 			if (wpid < 0)
 				return (1);
-			ok_tests += interpret_status(test_node, wpid, status);
+			ok_tests += interpret_status(status, fn_name, test_node->title);
 		}
 	}
 	print_passed_test(ok_tests, test_list);
