@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 14:38:41 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 15:35:30 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,11 @@ size_t					load_test(t_unit_test **head_ptr, const char *title,
  * @brief clears the tests memory
  */
 void					clear_tests(t_unit_test **head_ptr);
+
+/**
+ * @brief launches the tests and returns the reported status
+ */
+int						launch_tests(t_unit_test *test_list,
+							const char *fn_name);
 
 #endif // !UTIL_UNIT_H

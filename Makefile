@@ -4,10 +4,13 @@ CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
 CXXFLAGS	+= -g3
 CXXFLAGS	+= -I $(LIBFT_DIR)
 LDFLAGS		= -Llibft -lft
-SRC				= util_unit.c util_unit2.c
-OBJ				= $(SRC:.cpp=.o)
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
+
+SRC				= util_unit.c util_unit2.c launch_test.c
+SRC				+= tests/main.c
+SRC				+= tests/ft_strlen/00_launcher.c tests/ft_strlen/01_basic_test.c tests/ft_strlen/02_null_test.c
+OBJ				= $(SRC:.cpp=.o)
 
 all: $(NAME)
 

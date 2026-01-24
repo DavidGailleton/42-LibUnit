@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 12:43:37 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 15:44:35 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 
 	ok_tests = 0;
 	i = -1;
-	while (i++ < (int)count_tests(test_list))
+	while (++i < (int)count_tests(test_list))
 	{
 		wpid = fork();
 		if (wpid < 0)

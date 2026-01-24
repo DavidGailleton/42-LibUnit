@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:35:57 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 14:38:20 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 15:37:46 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ void	clear_tests(t_unit_test **head_ptr)
 		head->func = NULL;
 		head = next;
 	}
+  *head_ptr = NULL;
 }
