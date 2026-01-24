@@ -4,7 +4,7 @@
 int dummy(void) { return 1; }
 
 int main(void) {
-  t_unit_test *testlist;
+  t_unit_test *testlist = NULL;
 
   load_test(&testlist, "hi", &dummy);
 }

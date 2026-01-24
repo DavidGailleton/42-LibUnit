@@ -2,7 +2,8 @@ NAME			= libunit
 CXX				= cc
 CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
 CXXFLAGS	+= -g3
-CXXFLAGS	+= -I $(LIBFT_DIR) -lft -Llibft
+CXXFLAGS	+= -I $(LIBFT_DIR)
+LDFLAGS		= -Llibft -lft
 SRC				= util_unit.c
 OBJ				= $(SRC:.cpp=.o)
 LIBFT_DIR = libft
@@ -10,14 +11,14 @@ LIBFT_A		= $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(LIBFT_A):
-	$(MAKE) -C $(LIBFT_DIR)
-
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(OBJ) | $(LIBFT_A)
+	$(CXX) $(CXXFLAGS) $(OBJ) $(LDFLAGS) -o $(NAME)
 
 %.o: %.c Makefile
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(LIBFT_A):
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	$(RM) $(OBJ) $(SRC:.c=.d)
