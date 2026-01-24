@@ -22,7 +22,14 @@ static size_t	interpret_status(int status, const char *fn_name
 	ft_putstr_fd(" : ", 1);
 	ft_putstr_fd(test_name, 1);
 	ft_putstr_fd(" : ", 1);
-	if (WIFEXITED(status))
+	if (WIFSIGNALED(status))
+	{
+		if (WTERMSIG(status) == 11)
+			ft_putstr_fd("[SIGSEGV]\n", 1);
+		else if (WTERMSIG(status) == 10)
+			ft_putstr_fd("[SIGBUS]\n", 1);
+	}
+	else if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status))
 			ft_putstr_fd("[KO]\n", 1);
@@ -32,13 +39,6 @@ static size_t	interpret_status(int status, const char *fn_name
 			return (1);
 		}
 	}
-	else if (WIFSIGNALED(status))
-	{
-		if (WTERMSIG(status) == 11)
-			ft_putstr_fd("[SIGSEGV]\n", 1);
-		else if (WTERMSIG(status) == 10)
-			ft_putstr_fd("[SIGBUS]\n", 1);
-	}
 	return (0);
 }
 
@@ -47,7 +47,7 @@ static void	print_passed_test(size_t ok_tests, t_unit_test *test_list)
 	ft_putnbr_fd(ok_tests, 1);
 	ft_putchar_fd('/', 1);
 	ft_putnbr_fd((int)count_tests(test_list), 1);
-	ft_putstr_fd(" tests checked", 1);
+	ft_putstr_fd(" tests checked\n", 1);
 }
 
 int	launch_tests(t_unit_test *test_list, const char *fn_name)

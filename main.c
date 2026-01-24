@@ -16,4 +16,5 @@ int main(void)
 {
   libunit_launcher();
   strlen_launcher();
+  atoi_launcher();
 }

@@ -67,7 +67,8 @@ int						launch_tests(t_unit_test *test_list,
 							const char *fn_name);
 
 // LAUNCHERS
-int           strlen_launcher(void);
-int           libunit_launcher(void);
+int						strlen_launcher(void);
+int						libunit_launcher(void);
+int						atoi_launcher(void);
 
 #endif // !UTIL_UNIT_H
