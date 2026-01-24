@@ -4,7 +4,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
 CXXFLAGS	+= -g3
 CXXFLAGS	+= -I $(LIBFT_DIR)
 LDFLAGS		= -Llibft -lft
-SRC				= util_unit.c
+SRC				= util_unit.c util_unit2.c
 OBJ				= $(SRC:.cpp=.o)
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a

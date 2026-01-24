@@ -13,34 +13,6 @@
 #include "util_unit.h"
 #include <stdlib.h>
 
-int	dummy(void)
-{
-	return (1);
-}
-
-int	main(void)
-{
-	t_unit_test	*testlist;
-
-	testlist = NULL;
-	load_test(&testlist, "hi", &dummy);
-}
-
-/* we loop over instead of shifting the pointer to make sure we don't skip
-unexisting tests and end up in unallocated/invalid memory */
-t_unit_test	*get_test_at(t_unit_test *head, size_t target_idx)
-{
-	size_t	j;
-
-	j = 0;
-	while ((j < target_idx) && head)
-	{
-		head = head->next;
-		j++;
-	}
-	return (head);
-}
-
 size_t	count_tests(t_unit_test *head)
 {
 	size_t	j;
@@ -107,6 +79,7 @@ void	clear_tests(t_unit_test **head_ptr)
 	t_unit_test	*next;
 
 	next = *head_ptr;
+	head = NULL;
 	while (head)
 	{
 		head = *head_ptr;
