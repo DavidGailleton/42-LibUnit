@@ -14,10 +14,10 @@
 # define TESTS_H
 
 // LAUNCHERS
-int strlen_launcher(void);
+int	strlen_launcher(void);
 
 // strlen
-int test_basic(void);
-int test_null(void);
+int	test_basic(void);
+int	test_null(void);
 
 #endif // !TESTS_H

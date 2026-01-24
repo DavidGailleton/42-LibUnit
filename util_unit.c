@@ -90,5 +90,5 @@ void	clear_tests(t_unit_test **head_ptr)
 		head->func = NULL;
 		head = next;
 	}
-  *head_ptr = NULL;
+	*head_ptr = NULL;
 }

@@ -12,7 +12,7 @@
 
 #include "tests.h"
 
-int main(void)
+int	main(void)
 {
-  strlen_launcher();
+	strlen_launcher();
 }
