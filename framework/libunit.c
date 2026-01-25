@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 17:34:46 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:47:30 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,20 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 	h.i = -1;
 	ffd = handle_out(fn_name);
 	if (ffd < 0)
-		return (1);
+		return (-1);
 	while (++h.i < (int)count_tests(test_list))
 	{
 		h.wpid = fork();
 		if (h.wpid < 0)
-			return (1);
+			return (-1);
 		else if (h.wpid == 0 && child_helper(test_list, h) < 0)
-			return (1);
+			return (-1);
 		else if (parent_helper(ffd, &h, fn_name, test_list))
-			return (1);
+			return (-1);
 	}
 	print_passed_test(ffd, h.ok_tests, test_list);
 	close(ffd);
+	if (h.ok_tests != count_tests(test_list))
+		return (-1);
 	return (0);
 }
