@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:35:57 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 15:11:24 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:21:36 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ t_unit_test	*get_last(t_unit_test *head)
 /**
  * @brief util function to allocate a new test
  */
-static t_unit_test	*alloc_test(const char *title, int (*test_func)(void), unsigned int timeout)
+static t_unit_test	*alloc_test(const char *title, int (*test_func)(void),
+		unsigned int timeout)
 {
 	t_unit_test	*p;
 
@@ -47,30 +48,34 @@ static t_unit_test	*alloc_test(const char *title, int (*test_func)(void), unsign
 	p->title = ft_strdup(title);
 	p->func = test_func;
 	p->next = NULL;
-  p->timeout = timeout;
+	p->timeout = timeout;
+	p->max_len = 0;
 	return (p);
 }
 
 size_t	load_test(t_unit_test **head_ptr, const char *title,
 		int (*test_func)(void), unsigned int timeout)
 {
-	t_unit_test	*p;
 	t_unit_test	*last;
+	size_t		tlen;
 
 	if (!head_ptr)
 		return (-1);
+	tlen = ft_strlen(title);
 	if (!*head_ptr)
 	{
-		p = alloc_test(title, test_func, timeout);
-		if (!p)
+		*head_ptr = alloc_test(title, test_func, timeout);
+		if (!*head_ptr)
 			return (-1);
-		*head_ptr = p;
+		(*head_ptr)->max_len = ft_strlen(title);
 		return (0);
 	}
 	last = get_last(*head_ptr);
 	last->next = alloc_test(title, test_func, timeout);
 	if (!last->next)
 		return (-1);
+	if ((*head_ptr)->max_len < tlen)
+		(*head_ptr)->max_len = tlen;
 	return (0);
 }
 

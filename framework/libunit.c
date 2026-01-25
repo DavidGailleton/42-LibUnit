@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 15:15:05 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:13:12 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
+static int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
 		t_unit_test *test_list)
 {
 	int	status;
 
-	h->wpid = waitpid(h->wpid, &status, WCONTINUED);
+	h->wpid = wait(&status);
 	if (h->wpid < 0)
 		return (-1);
 	h->ok_tests += interpret_status(ffd, status, fn_name, get_test_at(test_list,
-		h->i)->title);
+		h->i)->title, test_list->max_len);
 	return (0);
 }
 
-int child_helper(t_unit_test *test_list, t_h h)
+static int child_helper(t_unit_test *test_list, t_h h)
 {
   int fd;
   int res;
@@ -48,7 +48,7 @@ int child_helper(t_unit_test *test_list, t_h h)
   exit(res);
 }
 
-int	handle_out(const char *fn_name)
+static int	handle_out(const char *fn_name)
 {
 	char	*tmp;
 	int		fd;

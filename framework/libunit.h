@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 15:09:41 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:02:32 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_unit_test
 	int					(*func)(void);
 	struct s_unit_test	*next;
   unsigned int timeout;
+  size_t max_len;
 }						t_unit_test;
 
 /**
@@ -75,7 +76,7 @@ typedef struct s_helper
 }						t_h;
 
 size_t					interpret_status(int ffd, int status,
-							const char *fn_name, char *test_name);
+							const char *fn_name, char *test_name, size_t spaces);
 
 void					print_passed_test(int ffd, size_t ok_tests,
 							t_unit_test *test_list);

@@ -6,27 +6,44 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:26:54 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 14:56:06 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:22:14 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
+#include <stdio.h>
+
+static void print_tabbed(int fd1, int fd2, char *s, size_t expected_len) {
+  size_t i;
+  size_t l;
+
+  l = ft_strlen(s);
+  ft_putstr_fd(s, fd1);
+  ft_putstr_fd(s, fd2);
+  i = 0;
+  while(l <= expected_len && i < ((expected_len + 1) - l))
+  {
+    ft_putchar_fd(' ', fd1);
+    ft_putchar_fd(' ', fd2);
+    i++;
+  }
+}
 
 static void	print_wtermsig(int ffd, int signal)
 {
 	static char	*sigs[15];
   char *msg;
 
-	sigs[4] = "SIGKILL";
 	sigs[6] = "SIGABRT";
 	sigs[7] = "SIGBUS";
 	sigs[8] = "SIGFPE";
+	sigs[9] = "SIGKILL";
 	sigs[11] = "SIGSEGV";
 	sigs[13] = "SIGPIPE";
 	sigs[14] = "TIMEOUT";
 	ft_putstr_fd("[\x1B[33m", 1);
 	ft_putstr_fd("[", ffd);
-  if ((signal >= 6 && signal <=8) || signal == 4 || signal == 11 || (signal >= 13 && signal <= 14))
+  if ((signal >= 6 && signal <= 9) || signal == 11 || (signal >= 13 && signal <= 14))
     msg = sigs[signal];
   else
     msg = "UNKNOWN";
@@ -37,16 +54,15 @@ static void	print_wtermsig(int ffd, int signal)
 }
 
 size_t	interpret_status(int ffd, int status, const char *fn_name,
-		char *test_name)
+		char *test_name, size_t max_len)
 {
 	ft_putstr_fd((char *)fn_name, 1);
 	ft_putstr_fd((char *)fn_name, ffd);
 	ft_putstr_fd(" : ", 1);
 	ft_putstr_fd(" : ", ffd);
-	ft_putstr_fd(test_name, 1);
-	ft_putstr_fd(test_name, ffd);
-	ft_putstr_fd(" : ", 1);
-	ft_putstr_fd(" : ", ffd);
+  print_tabbed(1, ffd, test_name, max_len);
+	ft_putstr_fd(": ", 1);
+	ft_putstr_fd(": ", ffd);
 	if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status))
