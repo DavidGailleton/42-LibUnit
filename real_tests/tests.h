@@ -33,7 +33,7 @@ int	atoi_int_max_test(void);
 int	atoi_int_min_test(void);
 int	atoi_null_test(void);
 
-//strncmp
+// strncmp
 int	strncmp_basic_test(void);
 int	strncmp_len_test(void);
 int	strncmp_high_len_test(void);

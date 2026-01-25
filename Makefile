@@ -32,11 +32,13 @@ clean:
 	$(RM) $(OBJ) $(SRC:.c=.d)
 	@$(MAKE) -C $(TESTD) clean
 	@$(MAKE) -C $(RTESTD) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
 	@$(MAKE) -C $(TESTD) fclean
 	@$(MAKE) -C $(RTESTD) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 	@$(MAKE)

@@ -14,6 +14,6 @@
 
 int	test_sigkill(void)
 {
-  raise(SIGKILL);
-  return (1);
+	raise(SIGKILL);
+	return (1);
 }

@@ -43,8 +43,8 @@ static long long int	ft_atoll(const char *nptr)
 	if (nptr[i] == '-' && ft_isdigit(nptr[i + 1]))
 	{
 		res = -1 * ft_atoll(&nptr[i] + 1);
-		if ((nptr[i + 1] != '1' && res == 1)
-			|| (nptr[i + 1] == '1' && ft_isdigit(nptr[i + 2]) && res == 1))
+		if ((nptr[i + 1] != '1' && res == 1) || (nptr[i + 1] == '1'
+				&& ft_isdigit(nptr[i + 2]) && res == 1))
 			return (0);
 		return (res);
 	}
@@ -57,6 +57,6 @@ int	ft_atoi(const char *nptr)
 {
 	int	res;
 
-	res = (int) ft_atoll(nptr);
+	res = (int)ft_atoll(nptr);
 	return (res);
 }
