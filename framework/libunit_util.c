@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:35:57 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 17:21:36 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 18:03:11 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,19 @@ size_t	load_test(t_unit_test **head_ptr, const char *title,
 
 void	clear_tests(t_unit_test **head_ptr)
 {
-	t_unit_test	*head;
+	t_unit_test	*current;
 	t_unit_test	*next;
 
-	next = *head_ptr;
-	head = NULL;
-	while (head)
+	if (!head_ptr)
+		return ;
+	current = *head_ptr;
+	while (current)
 	{
-		head = *head_ptr;
-		next = head->next;
-		head->next = NULL;
-		free(head->title);
-		head->title = NULL;
-		head->func = NULL;
-		head = next;
+		next = current->next;
+		if (current->title)
+			free(current->title);
+		free(current);
+		current = next;
 	}
 	*head_ptr = NULL;
 }

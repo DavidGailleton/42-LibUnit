@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 17:47:30 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 18:15:25 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ static int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
 {
 	int	status;
 	int	ffdst[2];
+  pid_t	caught_pid;
 
-	h->wpid = wait(&status);
-	if (h->wpid < 0)
-		return (-1);
+  caught_pid = 0;
+  while (caught_pid != h->wpid)
+	{
+		caught_pid = wait(&status);
+		if (caught_pid < 0)
+			return (-1);
+	}
 	ffdst[0] = ffd;
 	ffdst[1] = status;
 	h->ok_tests += interpret_status(ffdst, fn_name, get_test_at(test_list,
@@ -32,7 +37,7 @@ static int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
 	return (0);
 }
 
-static int	child_helper(t_unit_test *test_list, t_h h)
+static int	child_helper(t_unit_test *test_list, t_h h, int ffd)
 {
 	int			fd;
 	int			res;
@@ -48,6 +53,8 @@ static int	child_helper(t_unit_test *test_list, t_h h)
 		alarm(test->timeout);
 	res = test->func();
 	close(fd);
+	close(ffd);
+  clear_tests(&test_list);
 	exit(res);
 }
 
@@ -79,7 +86,7 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 		h.wpid = fork();
 		if (h.wpid < 0)
 			return (-1);
-		else if (h.wpid == 0 && child_helper(test_list, h) < 0)
+		else if (h.wpid == 0 && child_helper(test_list, h, ffd) < 0)
 			return (-1);
 		else if (parent_helper(ffd, &h, fn_name, test_list))
 			return (-1);
