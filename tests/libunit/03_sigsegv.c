@@ -12,7 +12,8 @@
 
 #include <signal.h>
 
-int test_sigsegv(void) {
-  raise(SIGSEGV);
-  return (1);
+int	test_sigsegv(void)
+{
+	raise(SIGSEGV);
+	return (1);
 }

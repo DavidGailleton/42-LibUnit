@@ -2,5 +2,5 @@
 
 int	strncmp_ok_test(void)
 {
-	return (ft_strncmp("test", "test", 4));
+	return (!ft_strncmp("test", "test", 4));
 }

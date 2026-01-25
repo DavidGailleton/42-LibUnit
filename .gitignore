@@ -55,4 +55,6 @@ dkms.conf
 *.dwo
 
 /libunit
+/real_tests/real_tests
+/tests/tests
 

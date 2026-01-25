@@ -1,37 +1,57 @@
-NAME			= libunit
-CXX				= cc
-CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP
-CXXFLAGS	+= -g3
-CXXFLAGS	+= -I $(LIBFT_DIR) -I.
-LDFLAGS		= -Llibft -lft
+NAME			= libunit.a
+AR				= ar rcs
+CC				= cc
+CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
+CCFLAGS		+= -I$(LIBFT_DIR) -I. -Iframework
+LDFLAGS		= -Llibft -lunit -lft -L.
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
-SRC				= libunit_util.c libunit_util2.c libunit.c main.c
-SRC				+= real_tests/ft_strlen/00_launcher.c real_tests/ft_strlen/01_basic.c real_tests/ft_strlen/02_null.c
-SRC				+= real_tests/ft_atoi/00_launcher.c real_tests/ft_atoi/01_ok.c real_tests/ft_atoi/02_ko.c real_tests/ft_atoi/03_sigsegv.c real_tests/ft_atoi/04_sigbus.c
-SRC				+= tests/libunit/00_launcher.c tests/libunit/01_ok.c tests/libunit/02_ko.c tests/libunit/03_sigsegv.c tests/libunit/04_sigbus.c
+SRC				= framework/libunit_util.c framework/libunit_util2.c framework/libunit.c
 OBJ				= $(SRC:.c=.o)
+
+TESTD			= tests
+TESTB			= $(TESTD)/tests
+TESTM			= $(TESTD)/Makefile
+RTESTD		= real_tests
+RTESTB		= $(RTESTD)/real_tests
+RTESTM		= $(RTESTD)/Makefile
 
 all: $(NAME)
 
 $(NAME): $(OBJ) | $(LIBFT_A)
-	$(CXX) $(CXXFLAGS) $(OBJ) $(LDFLAGS) -o $(NAME)
+	$(AR) $(NAME) $(OBJ)
 
 %.o: %.c Makefile
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CCFLAGS) -c $< -o $@
 
-$(LIBFT_A):
-	$(MAKE) -C $(LIBFT_DIR)
+$(LIBFT_A): FORCE
+	@$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	$(RM) $(OBJ) $(SRC:.c=.d)
+	@$(MAKE) -C $(TESTD) clean
+	@$(MAKE) -C $(RTESTD) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	@$(MAKE) -C $(TESTD) fclean
+	@$(MAKE) -C $(RTESTD) fclean
 
 re: fclean
-	$(MAKE) all
+	@$(MAKE) all
+
+$(TESTB): FORCE
+	@$(MAKE) -C $(TESTD)
+
+$(RTESTB): FORCE
+	@$(MAKE) -C $(RTESTD)
+
+test: $(TESTB) $(RTESTB)
+	$(TESTB)
+	$(RTESTB)
+
+FORCE: ;
 
 -include $(SRC:.c=.d)
 

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   03_large.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 15:39:06 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/24 16:36:42 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../tests.h"
 
-int	test_basic(void)
+int	test_large(void)
 {
-	return (ft_strlen("hello, world") == 12);
+	size_t	i;
+	char	s[10000];
+
+	i = 0;
+	while (i < sizeof(s))
+	{
+		s[i] = ' ';
+		i++;
+	}
+	return (ft_strlen(s) == sizeof(s) + 1);
 }

@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:01:12 by elagouch         ###   ########.fr       */
+/*   Created: 2026/01/24 18:53:13 by elagouch          #+#    #+#             */
+/*   Updated: 2026/01/24 18:53:14 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "tests.h"
 
-int test_null(void) {
-  return (ft_strlen(NULL) == 0);
+int	main(void)
+{
+	libunit_launcher();
 }

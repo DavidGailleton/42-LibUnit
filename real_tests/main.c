@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 15:40:58 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:15:52 by elagouch         ###   ########.fr       */
+/*   Created: 2026/01/24 18:53:18 by elagouch          #+#    #+#             */
+/*   Updated: 2026/01/24 18:53:18 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "tests.h"
 
-int main(void)
+int	main(void)
 {
-  libunit_launcher();
   strlen_launcher();
   atoi_launcher();
+  strncmp_launcher();
 }
