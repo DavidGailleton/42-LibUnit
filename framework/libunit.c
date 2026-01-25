@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 14:28:56 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:47:25 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	launcher_helper(int ffd, struct s_helper *h, const char *fn_name,
 {
 	int	status;
 
-	h->wpid = wait(&status);
+	h->wpid = waitpid(h->wpid, &status, WCONTINUED);
 	if (h->wpid < 0)
 		return (1);
 	h->ok_tests += interpret_status(ffd, status, fn_name, get_test_at(test_list,
@@ -59,6 +59,7 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 			return (1);
 		else if (h.wpid == 0)
 		{
+      alarm(5);
 			dup2(open("/dev/null", O_WRONLY), STDOUT_FILENO);
 			exit(!get_test_at(test_list, h.i)->func());
 		}
