@@ -1,6 +1,6 @@
 NAME    	= tests
 CC				= cc
-CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
+CCFLAGS		= -Wall -Wextra -Werror -MMD -MP -g3
 
 SRC     	= main.c
 SRC				+= libunit/00_launcher.c libunit/01_ok.c libunit/02_ko.c libunit/03_sigsegv.c libunit/04_sigbus.c

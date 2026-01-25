@@ -1,7 +1,7 @@
 NAME			= libunit.a
 AR				= ar rcs
 CC				= cc
-CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
+CCFLAGS		= -Wall -Wextra -Werror -MMD -MP -g3
 CCFLAGS		+= -I$(LIBFT_DIR) -I. -Iframework
 LDFLAGS		= -Llibft -lunit -lft -L.
 LIBFT_DIR = libft

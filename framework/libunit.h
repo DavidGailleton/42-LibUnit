@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 18:56:03 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 13:24:23 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,12 @@ void					clear_tests(t_unit_test **head_ptr);
  */
 int						launch_tests(t_unit_test *test_list,
 							const char *fn_name);
+
+typedef struct s_helper
+{
+	pid_t				wpid;
+	size_t				ok_tests;
+	int					i;
+}						t_h;
 
 #endif // !LIBUNIT_H

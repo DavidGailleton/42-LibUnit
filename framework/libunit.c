@@ -6,12 +6,13 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 16:50:51 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 13:24:44 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "libunit.h"
+#include <fcntl.h>
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -69,31 +70,38 @@ static void	print_passed_test(size_t ok_tests, t_unit_test *test_list)
 	ft_putstr_fd("\x1B[0m tests succeeded\n\n", 1);
 }
 
+int	launcher_helper(struct s_helper h, const char *fn_name,
+		t_unit_test *test_list)
+{
+	int	status;
+
+	h.wpid = wait(&status);
+	if (h.wpid < 0)
+		return (1);
+	h.ok_tests += interpret_status(status, fn_name, get_test_at(test_list,
+				h.i)->title);
+	return (0);
+}
+
 int	launch_tests(t_unit_test *test_list, const char *fn_name)
 {
-	size_t	ok_tests;
-	pid_t	wpid;
-	int		status;
-	int		i;
+	t_h	h;
 
-	ok_tests = 0;
-	i = -1;
-	while (++i < (int)count_tests(test_list))
+	h.ok_tests = 0;
+	h.i = -1;
+	while (++h.i < (int)count_tests(test_list))
 	{
-		wpid = fork();
-		if (wpid < 0)
+		h.wpid = fork();
+		if (h.wpid < 0)
 			return (1);
-		else if (wpid == 0)
-			exit(!get_test_at(test_list, i)->func());
-		else
+		else if (h.wpid == 0)
 		{
-			wpid = wait(&status);
-			if (wpid < 0)
-				return (1);
-			ok_tests += interpret_status(status, fn_name, get_test_at(test_list,
-						i)->title);
+			dup2(open("/dev/null", O_WRONLY), STDOUT_FILENO);
+			exit(!get_test_at(test_list, h.i)->func());
 		}
+		else if (launcher_helper(h, fn_name, test_list))
+			return (1);
 	}
-	print_passed_test(ok_tests, test_list);
+	print_passed_test(h.ok_tests, test_list);
 	return (0);
 }
