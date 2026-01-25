@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:26:54 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 17:22:14 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:28:36 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,22 @@ static void	print_wtermsig(int ffd, int signal)
 	ft_putstr_fd("]\n", ffd);
 }
 
+static void interpret_status_print(const char *fn_name, int ffd, char* test_name, size_t max_len)
+{
+  ft_putstr_fd("\x1B[94m", 1);
+	ft_putstr_fd((char *)fn_name, 1);
+	ft_putstr_fd((char *)fn_name, ffd);
+	ft_putstr_fd("\x1B[90m : \x1B[0m", 1);
+	ft_putstr_fd(" : ", ffd);
+  print_tabbed(1, ffd, test_name, max_len);
+	ft_putstr_fd("\x1B[90m : \x1B[0m", 1);
+	ft_putstr_fd(": ", ffd);
+}
+
 size_t	interpret_status(int ffd, int status, const char *fn_name,
 		char *test_name, size_t max_len)
 {
-	ft_putstr_fd((char *)fn_name, 1);
-	ft_putstr_fd((char *)fn_name, ffd);
-	ft_putstr_fd(" : ", 1);
-	ft_putstr_fd(" : ", ffd);
-  print_tabbed(1, ffd, test_name, max_len);
-	ft_putstr_fd(": ", 1);
-	ft_putstr_fd(": ", ffd);
+  interpret_status_print(fn_name, ffd, test_name, max_len);
 	if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status))
@@ -97,6 +103,6 @@ void	print_passed_test(int ffd, size_t ok_tests, t_unit_test *test_list)
 	ft_putchar_fd('/', ffd);
 	ft_putnbr_fd((int)total, 1);
 	ft_putnbr_fd((int)total, ffd);
-	ft_putstr_fd("\x1B[0m tests succeeded\n\n", 1);
-	ft_putstr_fd(" tests succeeded\n\n", ffd);
+	ft_putstr_fd("\x1B[0m tests passed\n\n", 1);
+	ft_putstr_fd(" tests passed\n\n", ffd);
 }
