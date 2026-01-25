@@ -6,14 +6,14 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 13:24:23 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 13:50:03 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <sys/types.h>
 # include <unistd.h>
 

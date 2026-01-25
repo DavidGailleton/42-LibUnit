@@ -1,0 +1,5 @@
+strlen : null : [SIGSEGV]
+strlen : basic : [OK]
+strlen : large : [OK]
+2/3 tests succeeded
+

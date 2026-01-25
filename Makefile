@@ -38,8 +38,8 @@ fclean: clean
 	@$(MAKE) -C $(TESTD) fclean
 	@$(MAKE) -C $(RTESTD) fclean
 
-re: fclean
-	@$(MAKE) all
+re: fclean all
+	@$(MAKE)
 
 $(TESTB): FORCE
 	@$(MAKE) -C $(TESTD)

@@ -1,0 +1,4 @@
+ft_strncmp : OK test : [OK]
+ft_strncmp : KO test : [KO]
+1/2 tests succeeded
+

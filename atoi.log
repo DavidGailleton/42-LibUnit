@@ -1,0 +1,6 @@
+atoi : OK test : [OK]
+atoi : KO test : [KO]
+atoi : SIGSEGV test : [SIGSEGV]
+atoi : SIGBUS test : [SIGSEGV]
+1/4 tests succeeded
+

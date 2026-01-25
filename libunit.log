@@ -1,0 +1,6 @@
+libunit : successful : [OK]
+libunit : unsuccessful : [KO]
+libunit : sigsegv : [SIGSEGV]
+libunit : sigbus : [SIGBUS]
+1/4 tests succeeded
+
