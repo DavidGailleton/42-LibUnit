@@ -19,12 +19,12 @@
 static int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
 		t_unit_test *test_list)
 {
-	int	status;
-	int	ffdst[2];
-  pid_t	caught_pid;
+	int		status;
+	int		ffdst[2];
+	pid_t	caught_pid;
 
-  caught_pid = 0;
-  while (caught_pid != h->wpid)
+	caught_pid = 0;
+	while (caught_pid != h->wpid)
 	{
 		caught_pid = wait(&status);
 		if (caught_pid < 0)
@@ -54,7 +54,7 @@ static int	child_helper(t_unit_test *test_list, t_h h, int ffd)
 	res = test->func();
 	close(fd);
 	close(ffd);
-  clear_tests(&test_list);
+	clear_tests(&test_list);
 	exit(res);
 }
 
