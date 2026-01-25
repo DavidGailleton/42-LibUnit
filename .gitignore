@@ -57,5 +57,5 @@ dkms.conf
 /libunit
 /real_tests/real_tests
 /tests/tests
-.log
+*.log
 

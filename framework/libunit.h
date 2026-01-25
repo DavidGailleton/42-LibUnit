@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 13:50:03 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:28:43 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,11 @@ typedef struct s_helper
 	size_t				ok_tests;
 	int					i;
 }						t_h;
+
+size_t					interpret_status(int ffd, int status,
+							const char *fn_name, char *test_name);
+
+void					print_passed_test(int ffd, size_t ok_tests,
+							t_unit_test *test_list);
 
 #endif // !LIBUNIT_H

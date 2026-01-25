@@ -7,7 +7,7 @@ LDFLAGS		= -Llibft -lunit -lft -L.
 LIBFT_DIR = libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
-SRC				= framework/libunit_util.c framework/libunit_util2.c framework/libunit.c
+SRC				= framework/libunit_util.c framework/libunit_util2.c framework/libunit.c framework/libunit_logger.c
 OBJ				= $(SRC:.c=.o)
 
 TESTD			= tests
