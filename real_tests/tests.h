@@ -25,5 +25,8 @@ int	atoi_ko_test(void);
 int	atoi_sigsegv_test(void);
 int	atoi_sigbus_test(void);
 
+//strncmp
+int strncmp_ok_test(void);
+
 
 #endif // !TESTS_H
