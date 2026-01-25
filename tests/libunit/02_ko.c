@@ -6,11 +6,11 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:16:37 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:36:07 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	test_ko(void)
 {
-	return (0);
+	return (1);
 }

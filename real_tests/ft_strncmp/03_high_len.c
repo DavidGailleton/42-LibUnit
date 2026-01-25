@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 16:01:01 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 16:01:03 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/25 16:35:34 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	strncmp_high_len_test(void)
 {
-	return (!ft_strncmp("test", "test", 42));
+	return (ft_strncmp("test", "test", 42));
 }

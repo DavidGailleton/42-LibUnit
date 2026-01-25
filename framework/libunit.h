@@ -6,14 +6,14 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:38:40 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 18:56:03 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:09:41 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <sys/types.h>
 # include <unistd.h>
 
@@ -25,6 +25,7 @@ typedef struct s_unit_test
 	char				*title;
 	int					(*func)(void);
 	struct s_unit_test	*next;
+  unsigned int timeout;
 }						t_unit_test;
 
 /**
@@ -53,7 +54,7 @@ size_t					count_tests(t_unit_test *head);
  * @return -1 on error, 0 on success
  */
 size_t					load_test(t_unit_test **head_ptr, const char *title,
-							int (*test_func)(void));
+							int (*test_func)(void), unsigned int timeout);
 
 /**
  * @brief clears the tests memory
@@ -65,5 +66,18 @@ void					clear_tests(t_unit_test **head_ptr);
  */
 int						launch_tests(t_unit_test *test_list,
 							const char *fn_name);
+
+typedef struct s_helper
+{
+	pid_t				wpid;
+	size_t				ok_tests;
+	int					i;
+}						t_h;
+
+size_t					interpret_status(int ffd, int status,
+							const char *fn_name, char *test_name);
+
+void					print_passed_test(int ffd, size_t ok_tests,
+							t_unit_test *test_list);
 
 #endif // !LIBUNIT_H

@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:05:24 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 12:05:25 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/25 15:15:39 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	strncmp_basic_test(void)
 {
-	return (!ft_strncmp("test", "test", 4));
+	return (ft_strncmp("test", "test", 4));
 }

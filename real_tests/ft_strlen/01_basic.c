@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:17:14 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:16:59 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	test_basic(void)
 {
-	return (ft_strlen("hello, world") == 12);
+	return (!(ft_strlen("hello, world") == 12));
 }

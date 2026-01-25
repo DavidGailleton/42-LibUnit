@@ -6,14 +6,14 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:19:43 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:36:33 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
+#include "../tests.h"
 
 int	test_sigsegv(void)
 {
-	raise(SIGSEGV);
+	return (ft_atoi(NULL) == 0);
 	return (1);
 }
