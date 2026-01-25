@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "../tests.h"
-#include <stdlib.h>
 
-int	atoi_sigsegv_test(void)
+int	atoi_int_min_test(void)
 {
-	return (ft_atoi(NULL));
+	return (ft_atoi("-2147483648") == -2147483648);
 }

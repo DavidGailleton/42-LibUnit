@@ -4,8 +4,8 @@ CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
 
 SRC     	= main.c
 SRC				+= ft_strlen/00_launcher.c ft_strlen/01_basic.c ft_strlen/02_null.c ft_strlen/03_large.c
-SRC				+= ft_atoi/00_launcher.c ft_atoi/01_ok.c ft_atoi/02_ko.c ft_atoi/03_sigsegv.c ft_atoi/04_sigbus.c
-SRC				+= ft_strncmp/00_launcher.c ft_strncmp/01_ok.c ft_strncmp/02_ko.c
+SRC				+= ft_atoi/00_launcher.c ft_atoi/01_basic.c ft_atoi/02_int_max.c ft_atoi/03_int_min.c ft_atoi/04_null.c
+SRC				+= ft_strncmp/00_launcher.c ft_strncmp/01_basic.c ft_strncmp/02_len.c ft_strncmp/03_high_len.c
 OBJ     	= $(SRC:.c=.o)
 
 LIBS    	= -L.. -lunit -L../libft -lft

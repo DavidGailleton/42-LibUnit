@@ -18,8 +18,9 @@ int	strncmp_launcher(void)
 	size_t		res;
 
 	testlist = NULL;
-	load_test(&testlist, "OK test", &strncmp_ok_test);
-	load_test(&testlist, "KO test", &strncmp_ko_test);
+	load_test(&testlist, "Basic test", &strncmp_basic_test);
+	load_test(&testlist, "Len test", &strncmp_len_test);
+	load_test(&testlist, "High len test", &strncmp_high_len_test);
 	res = launch_tests(testlist, "ft_strncmp");
 	clear_tests(&testlist);
 	return (res);

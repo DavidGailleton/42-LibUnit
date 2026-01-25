@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ok.c                                            :+:      :+:    :+:   */
+/*   03_high_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/25 12:05:24 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 12:05:25 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/25 16:01:01 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/25 16:01:03 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	strncmp_ok_test(void)
+int	strncmp_high_len_test(void)
 {
-	return (!ft_strncmp("test", "test", 4));
+	return (!ft_strncmp("test", "test", 42));
 }

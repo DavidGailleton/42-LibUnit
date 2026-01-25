@@ -18,10 +18,10 @@ int	atoi_launcher(void)
 	size_t		res;
 
 	testlist = NULL;
-	load_test(&testlist, "OK test", &atoi_ok_test);
-	load_test(&testlist, "KO test", &atoi_ko_test);
-	load_test(&testlist, "SIGSEGV test", &atoi_sigsegv_test);
-	load_test(&testlist, "SIGBUS test", &atoi_sigbus_test);
+	load_test(&testlist, "Basic test", &atoi_basic_test);
+	load_test(&testlist, "INT MAX test", &atoi_int_max_test);
+	load_test(&testlist, "INT MIN test", &atoi_int_min_test);
+	load_test(&testlist, "NULL test", &atoi_null_test);
 	res = launch_tests(testlist, "atoi");
 	clear_tests(&testlist);
 	return (res);

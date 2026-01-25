@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_sigbus.c                                        :+:      :+:    :+:   */
+/*   01_ok.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:23:23 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 17:23:24 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/24 17:22:48 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/24 17:22:51 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
+#include "libft.h"
 
-int	atoi_sigbus_test(void)
+int	atoi_basic_test(void)
 {
-	return (ft_atoi((void *) -2147483648));
+	return (ft_atoi("42") == 42);
 }

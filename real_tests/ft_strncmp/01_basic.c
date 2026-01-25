@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko.c                                            :+:      :+:    :+:   */
+/*   01_ok.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/25 12:05:30 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 12:05:32 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/25 12:05:24 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/25 12:05:25 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	strncmp_ko_test(void)
+int	strncmp_basic_test(void)
 {
-	return (!ft_strncmp("blabla", "test", 4));
+	return (!ft_strncmp("test", "test", 4));
 }

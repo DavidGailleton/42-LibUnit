@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:23:00 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 17:23:01 by dgaillet         ###   ########lyon.fr   */
+/*   Created: 2026/01/25 12:05:30 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/25 12:05:32 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	atoi_ko_test(void)
+int	strncmp_len_test(void)
 {
-	return (ft_atoi("30") == 10);
+	return (!ft_strncmp("test123", "test", 4));
 }

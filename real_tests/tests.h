@@ -26,13 +26,14 @@ int	test_null(void);
 int	test_large(void);
 
 // atoi
-int	atoi_ok_test(void);
-int	atoi_ko_test(void);
-int	atoi_sigsegv_test(void);
-int	atoi_sigbus_test(void);
+int	atoi_basic_test(void);
+int	atoi_int_max_test(void);
+int	atoi_int_min_test(void);
+int	atoi_null_test(void);
 
 //strncmp
-int	strncmp_ok_test(void);
-int	strncmp_ko_test(void);
+int	strncmp_basic_test(void);
+int	strncmp_len_test(void);
+int	strncmp_high_len_test(void);
 
 #endif // !TESTS_H
