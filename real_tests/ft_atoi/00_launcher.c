@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 16:22:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 15:13:36 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:32:35 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	atoi_launcher(void)
 	size_t		res;
 
 	testlist = NULL;
-	load_test(&testlist, "OK test", &atoi_ok_test, 0);
-	load_test(&testlist, "KO test", &atoi_ko_test, 0);
-	load_test(&testlist, "SIGSEGV test", &atoi_sigsegv_test, 0);
-	load_test(&testlist, "SIGBUS test", &atoi_sigbus_test, 0);
+	load_test(&testlist, "Basic test", &atoi_basic_test, 0);
+	load_test(&testlist, "INT MAX test", &atoi_int_max_test, 0);
+	load_test(&testlist, "INT MIN test", &atoi_int_min_test, 0);
+	load_test(&testlist, "NULL test", &atoi_null_test, 0);
 	res = launch_tests(testlist, "atoi");
 	clear_tests(&testlist);
 	return (res);

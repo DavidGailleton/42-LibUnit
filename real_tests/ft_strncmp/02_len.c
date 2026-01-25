@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko.c                                            :+:      :+:    :+:   */
+/*   02_len.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:05:30 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 15:15:50 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:34:24 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	strncmp_ko_test(void)
+int	strncmp_len_test(void)
 {
-	return (ft_strncmp("blabla", "test", 4));
+	return (ft_strncmp("test123", "test", 4));
 }

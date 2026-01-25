@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv.c                                       :+:      :+:    :+:   */
+/*   01_ok.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:23:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 15:17:45 by elagouch         ###   ########.fr       */
+/*   Created: 2026/01/25 12:05:24 by dgaillet          #+#    #+#             */
+/*   Updated: 2026/01/25 15:15:39 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
-#include <stdlib.h>
 
-int	atoi_sigsegv_test(void)
+int	strncmp_basic_test(void)
 {
-	return (!ft_atoi(NULL));
+	return (ft_strncmp("test", "test", 4));
 }
