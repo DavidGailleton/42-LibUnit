@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-  strlen_launcher();
-  atoi_launcher();
-  strncmp_launcher();
+	strlen_launcher();
+	atoi_launcher();
+	strncmp_launcher();
 }
