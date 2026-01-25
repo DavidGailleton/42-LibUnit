@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:23:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 17:23:11 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/25 15:17:45 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 int	atoi_sigsegv_test(void)
 {
-	return (ft_atoi(NULL));
+	return (!ft_atoi(NULL));
 }

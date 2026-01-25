@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:36:42 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:16:42 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	test_large(void)
 		s[i] = ' ';
 		i++;
 	}
-	return (ft_strlen(s) == sizeof(s) + 1);
+	return (!(ft_strlen(s) == sizeof(s) + 1));
 }

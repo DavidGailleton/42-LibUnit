@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:35:57 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:15:35 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:11:24 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_unit_test	*get_last(t_unit_test *head)
 /**
  * @brief util function to allocate a new test
  */
-t_unit_test	*alloc_test(const char *title, int (*test_func)(void))
+static t_unit_test	*alloc_test(const char *title, int (*test_func)(void), unsigned int timeout)
 {
 	t_unit_test	*p;
 
@@ -47,11 +47,12 @@ t_unit_test	*alloc_test(const char *title, int (*test_func)(void))
 	p->title = ft_strdup(title);
 	p->func = test_func;
 	p->next = NULL;
+  p->timeout = timeout;
 	return (p);
 }
 
 size_t	load_test(t_unit_test **head_ptr, const char *title,
-		int (*test_func)(void))
+		int (*test_func)(void), unsigned int timeout)
 {
 	t_unit_test	*p;
 	t_unit_test	*last;
@@ -60,14 +61,14 @@ size_t	load_test(t_unit_test **head_ptr, const char *title,
 		return (-1);
 	if (!*head_ptr)
 	{
-		p = alloc_test(title, test_func);
+		p = alloc_test(title, test_func, timeout);
 		if (!p)
 			return (-1);
 		*head_ptr = p;
 		return (0);
 	}
 	last = get_last(*head_ptr);
-	last->next = alloc_test(title, test_func);
+	last->next = alloc_test(title, test_func, timeout);
 	if (!last->next)
 		return (-1);
 	return (0);

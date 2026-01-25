@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:22:48 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 17:22:51 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/25 15:17:22 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 int	atoi_ok_test(void)
 {
-	return (ft_atoi("10") == 10);
+	return (!(ft_atoi("10") == 10));
 }

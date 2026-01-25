@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:26:54 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 14:50:04 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:56:06 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	print_wtermsig(int ffd, int signal)
 {
 	static char	*sigs[15];
+  char *msg;
 
 	sigs[4] = "SIGKILL";
 	sigs[6] = "SIGABRT";
@@ -25,8 +26,12 @@ static void	print_wtermsig(int ffd, int signal)
 	sigs[14] = "TIMEOUT";
 	ft_putstr_fd("[\x1B[33m", 1);
 	ft_putstr_fd("[", ffd);
-	ft_putstr_fd(sigs[signal], 1);
-	ft_putstr_fd(sigs[signal], ffd);
+  if ((signal >= 6 && signal <=8) || signal == 4 || signal == 11 || (signal >= 13 && signal <= 14))
+    msg = sigs[signal];
+  else
+    msg = "UNKNOWN";
+	ft_putstr_fd(msg, 1);
+	ft_putstr_fd(msg, ffd);
 	ft_putstr_fd("\x1B[0m]\n", 1);
 	ft_putstr_fd("]\n", ffd);
 }

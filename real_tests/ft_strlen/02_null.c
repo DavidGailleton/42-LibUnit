@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:38:17 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/24 16:17:04 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:16:28 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	test_null(void)
 {
-	return (ft_strlen(NULL) == 0);
+	return (!(ft_strlen(NULL) == 0));
 }

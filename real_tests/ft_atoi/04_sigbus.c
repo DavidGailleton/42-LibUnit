@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:23:23 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/24 17:23:24 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2026/01/25 15:18:02 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	atoi_sigbus_test(void)
 {
-	return (ft_atoi((void *) -2147483648));
+	return (!ft_atoi((void *) -2147483648));
 }
