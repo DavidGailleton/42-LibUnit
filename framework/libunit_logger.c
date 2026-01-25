@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:26:54 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 17:33:02 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:35:53 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_tabbed(int fd1, int fd2, char *s, size_t expected_len)
 	ft_putstr_fd(s, fd1);
 	ft_putstr_fd(s, fd2);
 	i = 0;
-	while (l <= expected_len && i < ((expected_len + 1) - l))
+	while (l <= expected_len && i < (expected_len - l))
 	{
 		ft_putchar_fd(' ', fd1);
 		ft_putchar_fd(' ', fd2);
