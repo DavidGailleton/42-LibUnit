@@ -6,7 +6,7 @@
 /*   By: elagouch <elagouch@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:26:54 by elagouch          #+#    #+#             */
-/*   Updated: 2026/01/25 14:28:20 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 14:32:23 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ void	print_passed_test(int ffd, size_t ok_tests, t_unit_test *test_list)
 	ft_putstr_fd("\x1B[0m tests succeeded\n\n", 1);
 	ft_putstr_fd(" tests succeeded\n\n", ffd);
 }
-
