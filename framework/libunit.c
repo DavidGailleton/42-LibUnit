@@ -16,6 +16,22 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+static void	print_wtermsig(int signal)
+{
+	if (signal == 11)
+		ft_putstr_fd("[\x1B[33mSIGSEGV\x1B[0m]\n", 1);
+	else if (signal == 7)
+		ft_putstr_fd("[\x1B[33mSIGBUS\x1B[0m]\n", 1);
+	else if (signal == 6)
+		ft_putstr_fd("[\x1B[33mSIGABRT\x1B[0m]\n", 1);
+	else if (signal == 8)
+		ft_putstr_fd("[\x1B[33mSIGFPE\x1B[0m]\n", 1);
+	else if (signal == 13)
+		ft_putstr_fd("[\x1B[33mSIGPIPE\x1B[0m]\n", 1);
+	else if (signal == 4)
+		ft_putstr_fd("[\x1B[33mSIGILL\x1B[0m]\n", 1);
+}
+
 static size_t	interpret_status(int status, const char *fn_name,
 		char *test_name)
 {
@@ -34,12 +50,7 @@ static size_t	interpret_status(int status, const char *fn_name,
 		}
 	}
 	else if (WIFSIGNALED(status))
-	{
-		if (WTERMSIG(status) == 11)
-			ft_putstr_fd("[\x1B[33mSIGSEGV\x1B[0m]\n", 1);
-		else if (WTERMSIG(status) == 7)
-			ft_putstr_fd("[\x1B[33mSIGBUS\x1B[0m]\n", 1);
-	}
+		print_wtermsig(WTERMSIG(status));
 	return (0);
 }
 
