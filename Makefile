@@ -1,6 +1,7 @@
 NAME			= libunit.a
 AR				= ar rcs
 CC				= cc
+MAKE			+= --no-print-directory
 CCFLAGS		= -Wall -Wextra -Werror -MMD -MP -g3
 CCFLAGS		+= -I$(LIBFT_DIR) -I. -Iframework
 LDFLAGS		= -Llibft -lunit -lft -L.
@@ -50,8 +51,8 @@ $(RTESTB): FORCE
 	@$(MAKE) -C $(RTESTD)
 
 test: $(TESTB) $(RTESTB)
-	$(TESTB)
-	$(RTESTB)
+	@$(TESTB)
+	@$(RTESTB)
 
 FORCE: ;
 

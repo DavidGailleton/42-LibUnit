@@ -1,5 +1,6 @@
 NAME    	= real_tests
 CC				= cc
+MAKE			+= --no-print-directory
 CCFLAGS		= -Wall -Wextra -Werror -MMD -MP
 
 SRC     	= main.c
