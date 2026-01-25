@@ -14,6 +14,6 @@
 
 int	test_sigabrt(void)
 {
-  raise(SIGABRT);
-  return (1);
+	raise(SIGABRT);
+	return (1);
 }

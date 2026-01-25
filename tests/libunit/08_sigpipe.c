@@ -14,6 +14,6 @@
 
 int	test_sigpipe(void)
 {
-  raise(SIGPIPE);
-  return (1);
+	raise(SIGPIPE);
+	return (1);
 }

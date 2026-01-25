@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:43:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2026/01/25 17:13:12 by elagouch         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:34:46 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,35 @@ static int	parent_helper(int ffd, struct s_helper *h, const char *fn_name,
 		t_unit_test *test_list)
 {
 	int	status;
+	int	ffdst[2];
 
 	h->wpid = wait(&status);
 	if (h->wpid < 0)
 		return (-1);
-	h->ok_tests += interpret_status(ffd, status, fn_name, get_test_at(test_list,
-		h->i)->title, test_list->max_len);
+	ffdst[0] = ffd;
+	ffdst[1] = status;
+	h->ok_tests += interpret_status(ffdst, fn_name, get_test_at(test_list,
+				h->i)->title, test_list->max_len);
 	return (0);
 }
 
-static int child_helper(t_unit_test *test_list, t_h h)
+static int	child_helper(t_unit_test *test_list, t_h h)
 {
-  int fd;
-  int res;
-  t_unit_test *test;
+	int			fd;
+	int			res;
+	t_unit_test	*test;
 
-  fd = open("/dev/null", O_WRONLY);
-  if (!fd)
-    return (-1);
+	fd = open("/dev/null", O_WRONLY);
+	if (!fd)
+		return (-1);
 	if (dup2(fd, STDOUT_FILENO) < 0)
-    return (-1);
-  test = get_test_at(test_list, h.i);
-  if (test->timeout)
-    alarm(test->timeout);
+		return (-1);
+	test = get_test_at(test_list, h.i);
+	if (test->timeout)
+		alarm(test->timeout);
 	res = test->func();
-  close(fd);
-  exit(res);
+	close(fd);
+	exit(res);
 }
 
 static int	handle_out(const char *fn_name)
@@ -77,7 +80,7 @@ int	launch_tests(t_unit_test *test_list, const char *fn_name)
 		if (h.wpid < 0)
 			return (1);
 		else if (h.wpid == 0 && child_helper(test_list, h) < 0)
-      return (1);
+			return (1);
 		else if (parent_helper(ffd, &h, fn_name, test_list))
 			return (1);
 	}

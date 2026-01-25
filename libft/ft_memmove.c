@@ -19,10 +19,10 @@ static void	*ft_rev_memcpy(void *dest, const void *src, size_t n)
 	n--;
 	while (n > 0)
 	{
-		((unsigned char *) dest)[n] = ((unsigned char *) src)[n];
+		((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
 		n--;
 	}
-	((unsigned char *) dest)[n] = ((unsigned char *) src)[n];
+	((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
 	return (dest);
 }
 

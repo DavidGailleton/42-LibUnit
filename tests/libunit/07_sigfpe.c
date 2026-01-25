@@ -14,6 +14,6 @@
 
 int	test_sigfpe(void)
 {
-  raise(SIGFPE);
-  return (1);
+	raise(SIGFPE);
+	return (1);
 }

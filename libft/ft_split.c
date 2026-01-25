@@ -14,8 +14,8 @@
 
 static size_t	strs_size(const char *s, unsigned char c)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -28,7 +28,7 @@ static size_t	strs_size(const char *s, unsigned char c)
 	return (i);
 }
 
-static int	next_match(char	*str, unsigned char c)
+static int	next_match(char *str, unsigned char c)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if ((s[j] != c && j == 0) || (s[j] != c && s[j - 1] == c))
 		{
-			strs[i] = ft_substr(&s[j], 0, next_match((char *) &s[j], c));
+			strs[i] = ft_substr(&s[j], 0, next_match((char *)&s[j], c));
 			if (!strs[i++])
 			{
 				clear_strs(strs);
